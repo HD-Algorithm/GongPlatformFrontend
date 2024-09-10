@@ -194,13 +194,15 @@ function getWhatsOn() {
                     }
 
                     eventsHtml += `
-                        <div class="event-card">
-                            <img src="${imageUrl}" alt="${event.name}" class="event-image">
-                            <h3>${event.name}</h3>
-                            <p>${formattedDate}</p>
-                            <p class="event-category">${category}</p>
-                            <p class="event-price">${ticketPrice}</p>
-                        </div>
+                        <a href="event-details.html?id=${event.id}" class="event-card-link">
+                            <div class="event-card">
+                                <img src="${imageUrl}" alt="${event.name}" class="event-image">
+                                <h3>${event.name}</h3>
+                                <p>${formattedDate}</p>
+                                <p class="event-category">${category}</p>
+                                <p class="event-price">${ticketPrice}</p>
+                            </div>
+                        </a>
                     `;
                 });
                 eventsHtml += '</div>';
