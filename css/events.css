@@ -87,6 +87,12 @@
     background-color: #e63946
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .events-container {
         grid-template-columns: 1fr;
