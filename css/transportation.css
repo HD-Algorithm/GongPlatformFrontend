@@ -1,0 +1,342 @@
+.transportation-hero {
+    background-image: url('../img/gong3.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--hero-text-color);
+}
+
+.transportation-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.transportation-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.transport-options {
+    padding: 50px 0;
+    background-color: var(--background-color);
+}
+
+.transport-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transport-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transport-card h2 {
+    color: var(--hero-text-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.transport-card p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.transport-card ul {
+    color: var(--text-color);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.transport-card li {
+    margin-bottom: 10px;
+}
+
+.transport-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--hero-text-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.transport-link:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .transportation-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .transportation-hero p {
+        font-size: 1rem;
+    }
+
+    .transport-card {
+        padding: 20px;
+    }
+
+    .transport-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Existing styles... */
+
+.station-search {
+    background-color: var(--secondary-color);
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.station-search h2, .route-search h2 {
+    color: var(--hero-text-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.station-search form, .route-search form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.station-search input, .route-search input,
+.station-search select, .route-search select {
+    flex: 1 1 200px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.station-search button, .route-search button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--hero-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.station-search button:hover, .route-search button:hover {
+    background-color: var(--secondary-color);
+}
+
+.nearby-stations, .route-info {
+    padding: 40px 0;
+}
+
+.nearby-stations h3, .route-info h3 {
+    color: var(--hero-text-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.nearby-stations ul, .route-info ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nearby-stations li, .route-info li {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nearby-stations li:hover, .route-info li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.route-info p {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .station-search form, .route-search form {
+        flex-direction: column;
+    }
+
+    .station-search input, .route-search input,
+    .station-search select, .route-search select,
+    .station-search button, .route-search button {
+        width: 100%;
+    }
+
+    .station-search h2, .route-search h2 {
+        font-size: 1.5rem;
+    }
+
+    .nearby-stations h3, .route-info h3 {
+        font-size: 1.5rem;
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.loading::after {
+    content: "...";
+    animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);
+    }
+    40% {
+        color: var(--text-color);
+        text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);
+    }
+    60% {
+        text-shadow:
+            .25em 0 0 var(--text-color),
+            .5em 0 0 rgba(0,0,0,0);
+    }
+    80%, 100% {
+        text-shadow:
+            .25em 0 0 var(--text-color),
+            .5em 0 0 var(--text-color);
+    }
+}
+
+.driving-directions-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.driving-directions-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.driving-directions-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.transit-directions-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.transit-directions-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.transit-directions-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#directionsPanel {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .driving-directions-form {
+        flex-direction: column;
+    }
+
+    .driving-directions-form input,
+    .driving-directions-form button {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .map-container {
+        height: 200px;
+    }
+}
+
+#transitDirectionsPanel {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .transit-directions-form {
+        flex-direction: column;
+    }
+
+    .transit-directions-form input,
+    .transit-directions-form button {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .map-container {
+        height: 200px;
+    }
+}
+
+.highlight {
+    border-bottom: 3px solid #007bff; 
+    padding-bottom: 2px;
+    color: inherit; 
+}
+
+

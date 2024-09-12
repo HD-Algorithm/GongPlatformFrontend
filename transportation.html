@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Get Here - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/transportation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Now:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">Explore Illawarra</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero transportation-hero">
+            <div class="container">
+                <h1>How to Get Here</h1>
+                <p>Discover the best ways to reach Wollongong and start your coastal adventure!</p>
+            </div>
+        </section>
+
+        <section class="route-search">
+            <div class="container">
+                <br /><br /><br />
+                <h2>Plan Your Journey</h2>
+            </div>
+        </section>
+
+        <section class="transport-options">
+            <div class="container">
+                <div class="transport-card">
+                    <h2>By Car</h2>
+                    <p>Plan your drive to Wollongong. Enter your starting location below:</p>
+                    <form id="drivingDirectionsForm" class="driving-directions-form">
+                        <input type="text" id="startLocation" placeholder="Enter your starting location" required>
+                        <button type="submit">Get Directions</button>
+                    </form>
+                    <div id="carDirectionsError" class="error-message" style="display: none;"></div>
+                    <div class="map-and-info">
+                        <div id="carMap" class="map-container"></div>
+                        <div id="carDirectionsInfo" class="directions-info"></div>
+                    </div>
+                    <p>Driving to Wollongong is easy and scenic. From Sydney, it's about a 1.5-hour drive south along the Grand Pacific Drive.</p>
+                    <ul>
+                        <li>Enjoy stunning coastal views along the Sea Cliff Bridge</li>
+                        <li>Multiple parking options available in Wollongong CBD</li>
+                    </ul>
+                </div>
+
+                <div class="transport-card" id="publicTransitCard">
+                    <h2>By Public Transit</h2>
+                    <p>Plan your journey to Wollongong using public transportation. Enter your starting location below:</p>
+                    <form id="transitDirectionsForm" class="transit-directions-form">
+                        <input type="text" id="transitStartLocation" placeholder="Enter your starting location" required>
+                        <button type="submit">Get Directions</button>
+                    </form>
+                    <div id="transitError" class="error-message" style="display: none;"></div>
+                    <div class="map-and-info">
+                        <div id="transitMap" class="map-container"></div>
+                        <div id="transitDirectionsInfo" class="directions-info"></div>
+                    </div>
+                    <p>Regular public transit services run to Wollongong, offering a comfortable and scenic journey.</p>
+                    <ul>
+                        <li>Buses connect Wollongong with surrounding areas</li>
+                        <li>Wollongong station is centrally located</li>
+                    </ul>
+                    <a href="https://transportnsw.info/" target="_blank" class="transport-link">Check Transit Timetables</a>
+                </div>
+
+                <div class="transport-card">
+                    <h2>Explore the Area by <span class="highlight">Bus</span></h2>
+                    <p>Local bus services connect Wollongong with surrounding areas and attractions.</p>
+                    <ul>
+                        <li>Frequent services within Wollongong and to nearby beaches</li>
+                        <li>Convenient for exploring without a car</li>
+                        <li>Buses connect with train services for seamless travel</li>
+                    </ul>
+                    <a href="http://www.premierillawarra.com.au/pdf/guides/networkmap.pdf" target="_blank" class="transport-link">View Bus Routes</a>
+                </div>
+
+                <div class="transport-card">
+                    <h2>Explore the Area by <span class="highlight">Bicycle</span></h2>
+                    <p>Wollongong is a bike-friendly city with numerous cycling paths and routes.</p>
+                    <ul>
+                        <li>Extensive network of dedicated bike paths</li>
+                        <li>Bike hire available in the city center</li>
+                        <li>Popular coastal cycling route along the Blue Mile</li>
+                    </ul>
+                    <a href="https://wollongong.nsw.gov.au/explore/sport-and-recreation/bike-city/info-for-cyclists" target="_blank" class="transport-link">Explore Cycling Routes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Wollongong 旅遊平台</p>
+        </div>
+    </footer>
+    <script src="js/config.js"></script>  
+    <script src="js/transportation.js"></script>
+</body>
+</html>
