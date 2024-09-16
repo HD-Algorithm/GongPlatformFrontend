@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Details - GONG ESCAPE</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/event-details.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Now:wght@400;700&display=swap" rel="stylesheet"> -->
+    <title>Restaurants - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/restaurants.css">
+    <link href="https://fonts.googleapis.com/css2?family=Now:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,12 +18,17 @@
     </header>
 
     <main>
-        <section class="event-details-section">
+        <section class="hero" style="background-image: url(img/restaurant.png);">
             <div class="container">
-                <div id="eventDetails" class="event-details">
-                    <!-- Event details will be inserted here by JavaScript -->
-                </div>
+                <h1>Restaurants in Wollongong</h1>
+                <p>Discover the top dining spots in and around Wollongong. Enjoy the best food experiences!</p>
             </div>
+        </section>
+
+        <section class="restaurant-list">
+            <div class="container">
+                <h2>Our Recommendations</h2>
+                <div id="map" style="display: none;"></div> 
         </section>
     </main>
 
@@ -33,8 +37,7 @@
             <p>&copy; 2024 Wollongong Escape</p>
         </div>
     </footer>
-
     <script src="js/config.js"></script>
-    <script src="js/event-details.js"></script>
+    <script src="js/restaurants.js"></script>
 </body>
 </html>

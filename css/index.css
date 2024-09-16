@@ -421,3 +421,94 @@ footer {
         font-size: 1em;
     }
 }
+
+/* 新增餐廳區塊樣式 */
+.restaurant-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 80px 0;
+    height: 100%;
+    text-align: center;
+}
+
+.restaurant-section h2 {
+    font-size: 2.5rem;
+    color: var(--hero-text-color);
+    margin-bottom: 20px;
+}
+
+.restaurant-section p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.restaurant-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--hero-text-color);
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.restaurant-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+.hero, .hero1, .packages-section{
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .restaurant-section {
+        padding: 60px 0;
+    }
+
+    .restaurant-section h2 {
+        font-size: 2rem;
+    }
+
+    .restaurant-section p {
+        font-size: 1rem;
+    }
+
+    .restaurant-button {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+}
+
+.lodging-section {
+    padding: 50px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.lodging-section h2 {
+    font-size: 2.5rem;
+    color: var(--hero-text-color);
+    margin-bottom: 20px;
+}
+
+.lodging-section p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.lodging-section .explore-button {
+    background-color: var(--primary-color);
+    color: var(--hero-text-color);
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.lodging-section .explore-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}

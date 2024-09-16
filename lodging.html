@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Events - GONG ESCAPE</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/events.css">
+    <title>Accommodation - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/lodging.css">
     <link href="https://fonts.googleapis.com/css2?family=Now:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,26 +18,27 @@
     </header>
 
     <main>
-        <section class="all-events-section">
+        <section class="hero" style="background-image: url(img/hotel.png);">
             <div class="container">
-                <h1>All Events</h1>
-                <div id="eventsContainer" class="events-container">
-                    <!-- Events will be dynamically inserted here -->
-                </div>
-                <div id="pagination" class="pagination">
-                    <!-- Pagination buttons will be dynamically inserted here -->
-                </div>
+                <h1>Accommodation in Wollongong</h1>
+                <p>Discover the best places to stay in and around Wollongong!</p>
+            </div>
+        </section>
+
+        <section class="lodging-list">
+            <div class="container">
+                <h2>Recommended Accommodation</h2>
+                <div id="map" style="display: none;"></div> <!-- 地圖容器，隱藏以便使用API -->
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Wollongong Escape</p>
+            <p>&copy; 2024 Wollongong 旅遊平台</p>
         </div>
     </footer>
-
     <script src="js/config.js"></script>
-    <script src="js/events.js"></script>
+    <script src="js/lodging.js"></script>
 </body>
 </html>
