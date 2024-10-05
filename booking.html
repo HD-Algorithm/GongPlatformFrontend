@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/restaurants.css">
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+    <header>
+        <h1>Booking for <span id="place-name"></span></h1>
+    </header>
+
+    <main>
+        <form id="booking-form" class="form-styled">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" class="styled-date" required>
+        
+            <label for="time">Time:</label>
+            <select id="time" name="time" required>
+                <option value="12:00">12:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="20:00">8:00 PM</option>
+            </select>
+        
+            <button type="submit" class="btn-submit">Book Now</button>
+        </form>
+        
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const restaurantName = params.get('restaurant');
+            const lodgingName = params.get('lodging');
+
+            let placeName = "";
+            let redirectURL = "";
+
+            if (restaurantName) {
+                placeName = restaurantName;
+                redirectURL = `payment.html?restaurant=${encodeURIComponent(restaurantName)}`;
+            } else if (lodgingName) {
+                placeName = lodgingName;
+                redirectURL = `payment.html?lodging=${encodeURIComponent(lodgingName)}`;
+            }
+
+            if (placeName) {
+                document.getElementById('place-name').textContent = placeName;
+            }
+
+            document.getElementById('booking-form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                const selectedTime = document.getElementById('time').value;
+
+                const blockedTimes = ['14:00', '18:00'];
+
+                if (blockedTimes.includes(selectedTime)) {
+                    alert('Sorry, the selected time is not available. Please choose another time.');
+                } else {
+                    window.location.href = redirectURL;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

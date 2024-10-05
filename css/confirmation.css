@@ -1,0 +1,102 @@
+body {
+    font-family: 'Now', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f4f4f4;
+}
+
+.confirmation-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.confirmation-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.confirmation-container p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+#restaurant-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.confirmation-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.confirmation-icon::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 20px;
+    border-left: 5px solid white; 
+    border-bottom: 5px solid white; 
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+

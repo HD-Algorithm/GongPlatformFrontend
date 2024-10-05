@@ -35,19 +35,24 @@ function displayRestaurants(restaurants) {
             const photoUrl = place.photos && place.photos.length > 0 ? place.photos[0].getUrl() : 'img/restaurant-placeholder.jpg';
             const placeId = place.place_id;
             const mapsLink = `https://www.google.com/maps/place/?q=place_id:${placeId}`;
+            const bookingLink = `booking.html?restaurant=${encodeURIComponent(place.name)}`;
 
             restaurantCard.innerHTML = `
                 <img src="${photoUrl}" alt="${place.name}">
                 <h3>${place.name}</h3>
                 <p>Address: ${place.vicinity}</p>
                 <p>Rating: ${place.rating || 'N/A'}</p>
-                <a href="${mapsLink}" target="_blank" class="details-button">View on Map</a>
+                <div>
+                    <a href="${mapsLink}" target="_blank" class="details-button">View on Map</a>
+                    <a href="${bookingLink}" class="details-button">Book Now</a>
+                </div>
             `;
 
             restaurantContainer.appendChild(restaurantCard);
         }
     });
 }
+
 
 
 function loadGoogleMapsAPI() {

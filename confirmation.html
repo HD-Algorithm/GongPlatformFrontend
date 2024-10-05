@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/confirmation.css">
+</head>
+<body>
+    <header>
+        <h1>Booking Confirmed!</h1>
+    </header>
+
+    <main>
+        <div class="confirmation-container">
+            <div class="confirmation-icon"></div>
+            <p>Thank you for booking at <span id="restaurant-name"></span>!</p>
+            <p>Your reservation has been successfully confirmed.</p>
+            <a href="index.html" class="btn-home">Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Wollongong Escape</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const restaurantName = params.get('restaurant');
+            document.getElementById('restaurant-name').textContent = restaurantName;
+        });
+    </script>
+</body>
+</html>

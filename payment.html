@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GONG ESCAPE</title>
+    <link rel="stylesheet" href="css/restaurants.css">
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+    <header>
+        <h1>Payment for <span id="restaurant-name"></span></h1>
+    </header>
+
+    <main>
+        <div class="amount-due">
+            <p>Total amount due: <strong>$50.00</strong></p>
+        </div>
+
+        <form id="payment-form" class="form-styled">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+        
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+        
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+        
+            <button type="submit" class="btn-submit">Submit Payment</button>
+        </form>
+    </main>
+    
+    <script src="js/payment.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const restaurantName = params.get('restaurant');
+            const lodgingName = params.get('lodging');
+
+            // 判斷顯示的名稱
+            if (restaurantName) {
+                document.getElementById('restaurant-name').textContent = restaurantName;
+            } else if (lodgingName) {
+                document.getElementById('restaurant-name').textContent = lodgingName;
+            }
+
+            document.getElementById('payment-form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                let redirectUrl = '';
+                if (restaurantName) {
+                    redirectUrl = `confirmation.html?restaurant=${encodeURIComponent(restaurantName)}`;
+                } else if (lodgingName) {
+                    redirectUrl = `confirmation.html?lodging=${encodeURIComponent(lodgingName)}`;
+                }
+                window.location.href = redirectUrl;
+            });
+        });
+    </script>
+</body>
+</html>
