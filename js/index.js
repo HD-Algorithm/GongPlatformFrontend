@@ -56,9 +56,9 @@ function generateCustomTravelRecommendation() {
             model: "gpt-4o-mini",
             messages: [
                 { role: "system", content: "You are a helpful travel assistant." },
-                { role: "user", content: `I am planning a trip for ${userResponses.days} days. I must visit ${userResponses.mustVisit}, and I enjoy ${userResponses.likesActivities}. Please suggest some interesting places to visit in Wollongong.` }
+                { role: "user", content: `I am planning a trip for ${userResponses.days} days. I must visit ${userResponses.mustVisit}, and I enjoy ${userResponses.likesActivities}. Please suggest some interesting places to visit in Wollongong area.` }
             ],
-            max_tokens: 200,
+            max_tokens: 1000,
             temperature: 0.7
         })
     })
