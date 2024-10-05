@@ -2,7 +2,102 @@
 const API_BASE_URL = CONFIG.API_BASE_URL;
 const LOCATION = 'Wollongong';
 
-// Get current weather
+// OpenAI API Key
+const OPENAI_API_KEY = "";
+
+let conversationStep = 0;
+let userResponses = {
+    days: null,
+    mustVisit: null,
+    likesActivities: null
+};
+
+document.getElementById('sendMessageBtn').addEventListener('click', () => {
+    const userInput = document.getElementById('userInput').value;
+    if (!userInput) return;
+
+    appendUserMessage(userInput);
+
+    switch(conversationStep) {
+        case 0:
+            // Step 1
+            userResponses.days = userInput;
+            appendBotMessage("Great! Is there any specific place you must visit? For example, 'Kiama' or 'Sea Cliff Bridge'.");
+            conversationStep++;
+            break;
+        case 1:
+            // Step 2
+            userResponses.mustVisit = userInput;
+            appendBotMessage("Got it! Do you enjoy outdoor activities like hiking or biking?");
+            conversationStep++;
+            break;
+        case 2:
+            // Step 3
+            userResponses.likesActivities = userInput;
+            appendBotMessage("Thanks for the information! Let me suggest some places for you...");
+            generateCustomTravelRecommendation();
+            conversationStep = 0; 
+            break;
+        default:
+            appendBotMessage("Sorry, something went wrong. Please try again.");
+    }
+
+    document.getElementById('userInput').value = '';
+});
+
+function generateCustomTravelRecommendation() {
+    fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+            model: "gpt-4o-mini",
+            messages: [
+                { role: "system", content: "You are a helpful travel assistant." },
+                { role: "user", content: `I am planning a trip for ${userResponses.days} days. I must visit ${userResponses.mustVisit}, and I enjoy ${userResponses.likesActivities}. Please suggest some interesting places to visit in Wollongong.` }
+            ],
+            max_tokens: 200,
+            temperature: 0.7
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.choices && data.choices.length > 0) {
+            const botMessage = data.choices[0].message.content.trim();
+            appendBotMessage(botMessage);
+        } else {
+            throw new Error('Invalid response format');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        appendBotMessage("Sorry, I couldn't provide a recommendation at this time. Please try again later.");
+    });
+}
+
+function appendUserMessage(message) {
+    const messageContainer = document.getElementById('chatbot-messages');
+    const userMessageElement = document.createElement('div');
+    userMessageElement.classList.add('message', 'user');
+    userMessageElement.textContent = message;
+    messageContainer.appendChild(userMessageElement);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+function appendBotMessage(message) {
+    const messageContainer = document.getElementById('chatbot-messages');
+    const botMessageElement = document.createElement('div');
+    botMessageElement.classList.add('message', 'bot');
+    botMessageElement.textContent = message;
+    messageContainer.appendChild(botMessageElement);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+
+
+
 function getCurrentWeather() {
     fetch(`${API_BASE_URL}weather/current?location=${encodeURIComponent(LOCATION)}`)
         .then(response => response.json())
