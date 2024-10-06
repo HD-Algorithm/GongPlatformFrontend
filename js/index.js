@@ -313,15 +313,34 @@ function getWhatsOn() {
         });
 }
 
+document.getElementById('toggleChatbot').addEventListener('click', function(event) {
+    event.stopPropagation();
 
-// Automatically fetch all weather information when the page is loaded
+    const chatbotContainer = document.getElementById('chatbot-container');
+    chatbotContainer.classList.toggle('collapsed');
+
+    const toggleButton = document.getElementById('toggleChatbot');
+    if (chatbotContainer.classList.contains('collapsed')) {
+        toggleButton.textContent = '+';
+    } else {
+        toggleButton.textContent = '−';
+    }
+});
+
+document.getElementById('chatbot-container').addEventListener('click', function() {
+    const chatbotContainer = document.getElementById('chatbot-container');
+    if (chatbotContainer.classList.contains('collapsed')) {
+        chatbotContainer.classList.remove('collapsed');
+        document.getElementById('toggleChatbot').textContent = '−';
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentWeather();
     toggleWeatherView();
     getWeatherAlerts(); 
     getWhatsOn();
-    
-    // Ensure the current weather is displayed by default
     document.getElementById('currentWeatherInfo').classList.add('active');
     document.getElementById('weatherForecastInfo').classList.remove('active');
 });

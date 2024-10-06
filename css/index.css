@@ -533,6 +533,17 @@ footer {
     padding: 15px;
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-header .collapse-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #chatbot-messages {
@@ -542,21 +553,6 @@ footer {
     background-color: #f9f9f9;
     scrollbar-width: thin;
     scrollbar-color: #000000 #f9f9f9;
-}
-
-/* 滾動條樣式 */
-#chatbot-messages::-webkit-scrollbar {
-    width: 8px;
-}
-
-#chatbot-messages::-webkit-scrollbar-track {
-    background: #f9f9f9;
-}
-
-#chatbot-messages::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 10px;
-    border: 2px solid #f9f9f9;
 }
 
 .message {
@@ -600,12 +596,6 @@ footer {
     transition: all 0.2s ease;
 }
 
-#chatbot-input input:focus {
-    outline: none;
-    border-color: #000000;
-    box-shadow: 0 0 5px rgba(0, 0, 255, 0.1);
-}
-
 #chatbot-input button {
     padding: 10px 15px;
     background-color: #000000;
@@ -615,11 +605,6 @@ footer {
     margin-left: 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#chatbot-input button:hover {
-    background-color: #2a4378;
 }
 
 #chatbot-container.collapsed {
