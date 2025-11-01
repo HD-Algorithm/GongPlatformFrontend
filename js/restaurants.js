@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyBddwMdl-WYsOr6pmjGNEQ2AsjFpKSNfTo'; 
+const API_KEY = ''; 
 const wollongongLocation = { lat: -34.4248, lng: 150.8931 }; 
 
 function initMap() {
